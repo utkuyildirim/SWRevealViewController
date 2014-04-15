@@ -172,12 +172,14 @@ typedef enum
 // Toogles the current state of the front controller between Left or Right and fully visible
 // Use setFrontViewPosition to set a particular position
 - (void)revealToggleAnimated:(BOOL)animated;
+- (void)revealCloseAnimated:(BOOL)animated;
 - (void)rightRevealToggleAnimated:(BOOL)animated; // <-- simetric implementation of the above for the rightViewController
 
 // The following methods are meant to be directly connected to the action method of a button
 // to perform user triggered postion change of the controller views. This is ussually added to a
 // button on top left or right of the frontViewController
 - (void)revealToggle:(id)sender;
+- (void)revealClose:(id)sender;
 - (void)rightRevealToggle:(id)sender; // <-- simetric implementation of the above for the rightViewController
 
 // The following method will provide a panGestureRecognizer suitable to be added to any view
