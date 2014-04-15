@@ -843,18 +843,18 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
 }
 
 - (void)revealCloseAnimated:(BOOL)animated
-{
-    FrontViewPosition toogledFrontViewPosition = FrontViewPositionLeft;
-    if (_frontViewPosition <= FrontViewPositionLeft)
-        toogledFrontViewPosition = FrontViewPositionRight;
-    
-    [self setFrontViewPosition:toogledFrontViewPosition animated:animated];
+{    
+    [self setFrontViewPosition:FrontViewPositionLeft animated:animated];
 }
 
 
 - (void)rightRevealToggleAnimated:(BOOL)animated
 {
-    [self setFrontViewPosition:FrontViewPositionLeft animated:animated];
+    FrontViewPosition toogledFrontViewPosition = FrontViewPositionLeft;
+    if (_frontViewPosition >= FrontViewPositionLeft)
+        toogledFrontViewPosition = FrontViewPositionLeftSide;
+    
+    [self setFrontViewPosition:toogledFrontViewPosition animated:animated];
 }
 
 
@@ -916,10 +916,6 @@ static NSString * const SWSegueRightIdentifier = @"sw_right";
     [self revealToggleAnimated:YES];
 }
 
-- (void)revealClose:(id)sender
-{
-    [self revealCloseAnimated:YES];
-}
 
 - (void)rightRevealToggle:(id)sender
 {    
